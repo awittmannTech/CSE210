@@ -34,7 +34,7 @@ class Program
 
         if (gradeLetter != "F")
         {
-            if(gradeLetter != "A" && ((gradePercentage % 10) <= 7))
+            if(gradeLetter != "A" && ((gradePercentage % 10) >= 7))
             {
                 gradeLetter += "+";
             }else if((gradePercentage % 10) <= 3)
