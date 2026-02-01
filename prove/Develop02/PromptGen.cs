@@ -1,6 +1,6 @@
 public class PromptGen
 {
-    List<Prompt> _prompts = new List<Prompt>();
+    public List<Prompt> _prompts = new List<Prompt>();
 
     public string GenerateRandomPrompt()
     {

@@ -20,6 +20,7 @@ public class Journal
             loadedEntry._date = parts[0];
             loadedEntry._prompt = parts[1];
             loadedEntry._userInput = parts[2];
+            loadedEntry._dayRating = parts[3];
 
             loadedJournal._entries.Add(loadedEntry);
         }
@@ -34,10 +35,9 @@ public class Journal
 
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
-            outputFile.WriteLine("date, prompt, entry");
             foreach (Entry entry in _entries)
             {
-                outputFile.WriteLine($"{entry._date}, ${entry._prompt}, ${entry._userInput}");
+                outputFile.WriteLine($"{entry._date}, {entry._prompt}, {entry._userInput}, {entry._dayRating}");
             }
         } 
     }
@@ -50,15 +50,25 @@ public class Journal
         }
     }
 
-    public void MakeEntry()
+    public void MakeEntry(string randomPrompt)
     {
-        PromptGen gen = new PromptGen();
-        string randomPrompt = gen.GenerateRandomPrompt();
+        DateTime theCurrentTime = DateTime.Now;
+        string dateText = theCurrentTime.ToShortDateString();
 
         Console.Write($"{randomPrompt} ");
         string userInput = Console.ReadLine();
 
+        Console.WriteLine();
+
+        Console.Write("Rate your day out of 10: ");
+        string userDayRating = Console.ReadLine();
+
         Entry newEntry = new Entry();
-        newEntry._date = 
+        newEntry._date = dateText;
+        newEntry._prompt = randomPrompt;
+        newEntry._userInput = userInput;
+        newEntry._dayRating = userDayRating;
+
+        _entries.Add(newEntry);
     }
 }
