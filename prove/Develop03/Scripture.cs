@@ -1,3 +1,5 @@
+using System;
+
 public class Scripture
 {
     private Reference _reference;
@@ -21,13 +23,42 @@ public class Scripture
         _reference.Display();
         foreach (Word w in _wordList)
         {
-            if(w._isHidden == false)
+            w.Display();
+        }
+    }
+
+    public void HideRandWords()
+    {
+        List<Word> visableWords = new List<Word>();
+        foreach(Word word in _wordList)
+        {
+            if(!word.IsHidden())
             {
-                Console.Write($"{w._word} ");
-            } else
-            {
-                Console.Write("____ ");
+                visableWords.Add(word);
             }
         }
+
+        Random rand = new Random();
+        for (int i = 1; i < 4 && visableWords.Count > 0; i++)
+        {
+            int hideThisWord = rand.Next(visableWords.Count);
+            visableWords[hideThisWord].Hide();
+            visableWords.RemoveAt(hideThisWord);
+        }
+    }
+
+    public bool IsFullyHidden()
+    {
+        bool FullyHidden = true;
+
+        foreach(Word word in _wordList)
+        {
+            if(!word.IsHidden())
+            {
+                FullyHidden = false;
+            }
+        }
+
+        return FullyHidden;
     }
 }

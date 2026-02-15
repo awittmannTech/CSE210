@@ -20,12 +20,30 @@ class Program
 
 
         do {
+            Console.Clear();
+
             scriptureList[scriptureIndex].Display();
 
-            Console.WriteLine("Press enter to continue or type quit to finish: ");
+            Console.WriteLine("\nPress enter to continue or type quit to finish: ");
             userResponse = Console.ReadLine();
 
-            
+            if (userResponse != "quit")
+            {
+                scriptureList[scriptureIndex].HideRandWords();
+
+                if(scriptureList[scriptureIndex].IsFullyHidden())
+                {
+                    if (scriptureIndex < scriptureList.Count - 1)
+                    {
+                        scriptureIndex += 1;
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nThat's all of them! Well done!");
+                        userResponse = "quit";
+                    }
+                }
+            }
 
         } while (userResponse != "quit");
 
