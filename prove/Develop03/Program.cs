@@ -1,3 +1,5 @@
+// Went above and beyond with some creativity by adding a list of scriptures that it goes through. so you could play multiple times.
+
 using System;
 
 class Program
