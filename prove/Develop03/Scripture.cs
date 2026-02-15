@@ -49,16 +49,16 @@ public class Scripture
 
     public bool IsFullyHidden()
     {
-        bool FullyHidden = true;
+        bool fullyHidden = true;
 
         foreach(Word word in _wordList)
         {
             if(!word.IsHidden())
             {
-                FullyHidden = false;
+                fullyHidden = false;
             }
         }
 
-        return FullyHidden;
+        return fullyHidden;
     }
 }
