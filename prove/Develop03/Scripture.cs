@@ -1,14 +1,33 @@
 public class Scripture
 {
-    public string _reference;
-    public List<Word> _wordList = new List<Word>();
+    private Reference _reference;
+    private List<Word> _wordList = new List<Word>();
+
+    public Scripture(Reference reference, string text)
+    {
+        _reference = reference;
+
+        string[] words = text.Split(" ");
+        
+        foreach(string w in words)
+        {
+            Word newWord = new Word(w);
+            _wordList.Add(newWord);
+        }
+    }
     
     public void Display()
     {
-        Console.WriteLine($"");
+        _reference.Display();
         foreach (Word w in _wordList)
         {
-            Console.Write(w._word);
+            if(w._isHidden == false)
+            {
+                Console.Write($"{w._word} ");
+            } else
+            {
+                Console.Write("____ ");
+            }
         }
     }
 }

@@ -4,23 +4,18 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop03 World!");
+
+        Reference reference1 = new Reference("Alma", "41", "10");
+        Scripture scripture1 = new Scripture(reference1, "Do not suppose, because it has been spoken concerning restoration, that ye shall be restored from sin to happiness. Behold, I say unto you, wickedness never was happiness.");
         
+        Reference reference2 = new Reference("1 Nephi", "1", "1");
+        Scripture scripture2 = new Scripture(reference2, "I, Nephi, having been born of goodly parents, therefore I was taught somewhat in all the learning of my father; and having seen many afflictions in the course of my days, nevertheless, having been highly favored of the Lord in all my days; yea, having had a great knowledge of the goodness and the mysteries of God, therefore I make a record of my proceedings in my days.");
+        
+        Reference reference3 = new Reference("Luke", "11", "11-13");
+        Scripture scripture3 = new Scripture(reference2, "11 If a son shall ask bread of any of you that is a father, will he give him a stone? or if he ask a fish, will he for a fish give him a serpent? \n12 Or if he shall ask an egg, will he offer him a scorpion? \n13 If ye then, being evil, know how to give good gifts unto your children: how much more shall your heavenly Father give the Holy Spirit to them that ask him?");
 
 
-        // new Reference
-        // John 3:16-17
-        // book
-        // chatper
-        // verse info
-
-        // new Scripture
-        // has reference
-        // verses [16, 17]
-
-        // Word
-
-
+        scripture3.Display();
 
     }
 }
