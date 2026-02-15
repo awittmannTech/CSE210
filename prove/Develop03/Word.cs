@@ -8,10 +8,6 @@ public class Word
         _word = word;
         _isHidden = false;
     }
-    public string GetWord()
-    {
-        return _word;
-    }
 
     public void HideWord()
     {
