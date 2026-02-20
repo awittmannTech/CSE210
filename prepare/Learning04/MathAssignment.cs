@@ -1,20 +1,16 @@
 public class MathAssignment : Assignment
 {
-    private string _textbookSelection = "";
+    private string _textbookSection = "";
     private string _problems = "";
 
-    public MathAssignment(string studenName, string topic, string textbookSelection, string problems) : base(studenName, topic)
+    public MathAssignment(string studentName, string topic, string textbookSection, string problems) : base(studentName, topic)
     {
-        _textbookSelection = textbookSelection;
+        _textbookSection = textbookSection;
         _problems = problems;
-
-        
     } 
 
-    public void GetHomeworkList()
+    public string GetHomeworkList()
     {
-        Console.WriteLine($"{_problems}");
+        return $"Section {_textbookSection} Problems {_problems}";
     }
-
-
 }

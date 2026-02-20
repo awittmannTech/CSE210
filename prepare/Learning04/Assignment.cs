@@ -1,7 +1,7 @@
 public class Assignment
 {
-    private string _studentName = "";
-    private string _topic = "";
+    protected string _studentName = "";
+    protected string _topic = "";
 
     public Assignment(string studentName, string topic)
     {
@@ -9,8 +9,8 @@ public class Assignment
         _topic = topic;
     }
 
-    public void GetSummary()
+    public string GetSummary()
     {
-        Console.WriteLine($"{_studentName} - {_topic}");
+      return $"{_studentName} - {_topic}";
     }
 }
