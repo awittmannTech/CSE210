@@ -13,7 +13,7 @@ public class Activity
         _name = name;
     }
 
-    protected void loadingSpinner(int duration)
+    protected void DisplayLoadingSpinner(int duration)
     {
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(duration);
@@ -32,28 +32,38 @@ public class Activity
         }
     }
 
-    protected void displayIntroduction()
+    protected void DisplayIntroduction()
     {
         Console.WriteLine($"Welcome to the {_name} Activity.");
 
         Console.WriteLine($"{_description}");
 
-        Console.Write("How long, in seconds, would you like for your session?");
+        Console.Write("How long, in seconds, would you like for your session? ");
 
         string duration = Console.ReadLine();
         _duration = int.Parse(duration);
 
         Console.WriteLine("Get ready...");
-        loadingSpinner(6);
+        DisplayLoadingSpinner(6);
     }
 
-    protected void displayConclusion()
+    protected void DisplayCountdown(int seconds)
+    {
+        for (int x = 0; x < seconds; x++)
+        {
+            Console.Write(seconds - x);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
+    }
+
+    protected void DisplayConclusion()
     {
         Console.WriteLine("Well done!!\n\n");
-        loadingSpinner(6);
+        DisplayLoadingSpinner(6);
 
-        Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
-        loadingSpinner(6);
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_name} activity.");
+        DisplayLoadingSpinner(6);
     }
     
 }

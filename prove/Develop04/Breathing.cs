@@ -8,7 +8,7 @@ public class Breathing : Activity
     {
         int cycleDuration = 5;
 
-        displayIntroduction();
+        DisplayIntroduction();
         int cycleCount = _duration / cycleDuration;
 
         for (int i = 0; i < cycleCount; i++)
@@ -19,18 +19,11 @@ public class Breathing : Activity
             {
                 Console.Write("Breathe out...");
             }
-            for (int x = 0; x < cycleDuration; x++)
-            {
-                Console.Write(cycleDuration - x);
-
-                Thread.Sleep(1000);
-
-                Console.Write("\b \b"); // Erase the + character
-            }
+            DisplayCountdown(cycleDuration);
             Console.WriteLine();
         }
         
-        displayConclusion();
+        DisplayConclusion();
 
     }
 }
