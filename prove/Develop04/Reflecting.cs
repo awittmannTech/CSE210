@@ -11,9 +11,10 @@ public class Reflecting : Activity
 
     public void RunReflecting()
     {
-        DisplayIntroduction();
+        int cycleDuration = 5;
 
-        int cycleDuration = _duration / 5;
+        DisplayIntroduction();
+        int cycleCount = _duration / cycleDuration;
 
         Console.WriteLine("Consider the following prompt: ");
 
@@ -33,11 +34,16 @@ public class Reflecting : Activity
 
         Console.Clear();
 
-        foreach(string question in _questions)
+        for (int i = 0; i < cycleCount; i++)
         {
+            int questionIndex = random.Next(_questions.Count);
+            string question = _questions[questionIndex];
+
             Console.WriteLine($"> {question}");
             DisplayLoadingSpinner(cycleDuration);
         }        
+
+        DisplayConclusion();
 
     }
 }

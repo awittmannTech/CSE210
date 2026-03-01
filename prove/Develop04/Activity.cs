@@ -32,6 +32,16 @@ public class Activity
         }
     }
 
+        protected void DisplayCountdown(int seconds)
+    {
+        for (int x = 0; x < seconds; x++)
+        {
+            Console.Write(seconds - x);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
+    }
+
     protected void DisplayIntroduction()
     {
         Console.WriteLine($"Welcome to the {_name} Activity.");
@@ -45,16 +55,6 @@ public class Activity
 
         Console.WriteLine("Get ready...");
         DisplayLoadingSpinner(6);
-    }
-
-    protected void DisplayCountdown(int seconds)
-    {
-        for (int x = 0; x < seconds; x++)
-        {
-            Console.Write(seconds - x);
-            Thread.Sleep(1000);
-            Console.Write("\b \b");
-        }
     }
 
     protected void DisplayConclusion()
