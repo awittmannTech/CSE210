@@ -4,12 +4,12 @@ public class Breathing : Activity
     {
     }
 
-    public void runBreathing()
+    public void RunBreathing()
     {
         int cycleDuration = 5;
 
-        int cycleCount = _duration / cycleDuration;
         displayIntroduction();
+        int cycleCount = _duration / cycleDuration;
 
         for (int i = 0; i < cycleCount; i++)
         {
@@ -19,16 +19,18 @@ public class Breathing : Activity
             {
                 Console.Write("Breathe out...");
             }
-            for (int x = 1; x == cycleDuration; x++)
+            for (int x = 0; x < cycleDuration; x++)
             {
-                Console.Write(x);
+                Console.Write(cycleDuration - x);
 
                 Thread.Sleep(1000);
 
                 Console.Write("\b \b"); // Erase the + character
             }
+            Console.WriteLine();
         }
         
-        
+        displayConclusion();
+
     }
 }

@@ -1,13 +1,13 @@
 public class Listening : Activity
 {
-    private string _prompts = "";
+    private string _prompt = "";
 
-    public Listening(string prompts)
+    public Listening(string prompt, int duration, string name, string description) : base(duration, name, description)
     {
-        _prompts = prompts;
+        _prompt = prompt;
     }
 
-    public void runListening()
+    public void RunListening()
     {
         
     }

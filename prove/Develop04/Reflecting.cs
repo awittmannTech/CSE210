@@ -1,15 +1,15 @@
 public class Reflecting : Activity
 {
-    private string _prompts = "";
-    private string _quetsions = "";
+    private string _prompt = "";
+    private string _quetsion = "";
 
-    public Reflecting(string prompts, string questions)
+    public Reflecting(string prompt, string question, int duration, string name, string description) : base(duration, name, description)
     {
-        _prompts = prompts;
-        _quetsions = questions;
+        _prompt = prompt;
+        _quetsion = question;
     }
 
-    public void runReflecting()
+    public void RunReflecting()
     {
         
     }
