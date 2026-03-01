@@ -9,7 +9,7 @@ public class Reflecting : Activity
         _questions = questions;
     }
 
-    public void RunReflecting()
+    public int RunReflecting()
     {
         int cycleDuration = 5;
 
@@ -44,6 +44,8 @@ public class Reflecting : Activity
         }        
 
         DisplayConclusion();
+
+        return _duration;
 
     }
 }

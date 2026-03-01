@@ -4,7 +4,7 @@ public class Breathing : Activity
     {
     }
 
-    public void RunBreathing()
+    public int RunBreathing()
     {
         int cycleDuration = 5;
 
@@ -24,6 +24,8 @@ public class Breathing : Activity
         }
         
         DisplayConclusion();
+
+        return _duration;
 
     }
 }

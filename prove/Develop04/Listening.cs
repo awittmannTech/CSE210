@@ -7,7 +7,7 @@ public class Listening : Activity
         _prompts = prompts;
     }
 
-    public void RunListening()
+    public int RunListening()
     {
         DisplayIntroduction();
 
@@ -37,6 +37,8 @@ public class Listening : Activity
         Console.WriteLine($"You listed {count} items!");
 
         DisplayConclusion();
+
+        return _duration;
 
     }
 }

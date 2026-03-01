@@ -32,7 +32,7 @@ public class Activity
         }
     }
 
-        protected void DisplayCountdown(int seconds)
+    protected void DisplayCountdown(int seconds)
     {
         for (int x = 0; x < seconds; x++)
         {
