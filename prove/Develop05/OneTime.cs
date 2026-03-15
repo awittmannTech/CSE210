@@ -19,6 +19,11 @@ public class OneTime : Goal
 
     public override int RecordEvent()
     {
+        if(_completed)
+        {
+            return 0;
+        }
+        
         _completed = true;
         return _points;
     }

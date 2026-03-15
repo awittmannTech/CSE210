@@ -132,8 +132,9 @@ class Program
                                     int.Parse(parts[3]),
                                     parts[1],
                                     parts[2],
+                                    int.Parse(parts[4]),
                                     int.Parse(parts[5]),
-                                    int.Parse(parts[4])
+                                    int.Parse(parts[6])
                                 );
                                 break;
                         }
