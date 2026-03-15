@@ -21,6 +21,7 @@ public class OneTime : Goal
     {
         if(_completed)
         {
+            Console.WriteLine("Goal already completed.");
             return 0;
         }
         

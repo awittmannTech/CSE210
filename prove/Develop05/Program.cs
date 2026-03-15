@@ -7,12 +7,13 @@ class Program
     {
         
         List<Goal> goals = new List<Goal>();
+
         int points = 0;
+
         string choice = "";
 
         List<string> menu_options = ["Create New Goal", "List Goals", "Save Goals", "Load Goals", "Record Event", "Quit"];
         List<string> goal_types = ["Simple Goal", "Eternal Goal", "Checklist Goal"];
-        
 
         while(choice != "6") {
 
@@ -124,7 +125,8 @@ class Program
                                 loadedGoal = new Eternal(
                                     int.Parse(parts[3]),
                                     parts[1],
-                                    parts[2]
+                                    parts[2],
+                                    int.Parse(parts[4])
                                 );
                                 break;
                             case "MultiGoal":
