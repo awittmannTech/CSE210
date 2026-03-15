@@ -32,5 +32,6 @@ public abstract class Goal
     }
 
     public abstract string GetSerializedGoal();
+    public abstract int RecordEvent();
 
 }

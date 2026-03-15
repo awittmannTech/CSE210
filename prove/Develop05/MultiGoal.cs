@@ -4,11 +4,11 @@ public class MultiGoal : Goal
     private int _completionCntGoal;
     private int _timesCompleted;
 
-    public MultiGoal(int points, string name, string description, int completionBonus, int completionCntGoal) : base (points, name, description)
+    public MultiGoal(int points, string name, string description, int completionBonus, int completionCntGoal, int timesCompleted = 0) : base (points, name, description)
     {   
         _completionBonus = completionBonus;
         _completionCntGoal = completionCntGoal;
-        _timesCompleted = 0;
+        _timesCompleted = timesCompleted;
     }
 
     public override void DisplayGoal(int i)
@@ -19,5 +19,19 @@ public class MultiGoal : Goal
     public override string GetSerializedGoal()
     {
         return $"MultiGoal,{_name},{_description},{_points},{_completionBonus},{_completionCntGoal},{_timesCompleted}";
+    }
+
+    public override int RecordEvent()
+    {
+        _timesCompleted += 1;
+
+        int pointsAwarded = _points;
+
+        if(_timesCompleted == _completionCntGoal)
+        {
+            pointsAwarded += _completionBonus;
+        }
+
+        return pointsAwarded;
     }
 }

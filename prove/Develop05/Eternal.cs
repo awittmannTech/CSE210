@@ -11,4 +11,9 @@ public class Eternal : Goal
     {
         return $"Eternal,{_name},{_description},{_points}";
     }
+
+    public override int RecordEvent()
+    {
+        return _points;
+    }
 }

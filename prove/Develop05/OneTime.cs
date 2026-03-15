@@ -16,4 +16,10 @@ public class OneTime : Goal
     {
         return $"OneTime,{_name},{_description},{_points},{(_completed ? 1 : 0)}";
     }
+
+    public override int RecordEvent()
+    {
+        _completed = true;
+        return _points;
+    }
 }

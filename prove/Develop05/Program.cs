@@ -21,12 +21,7 @@ class Program
             Console.WriteLine($"You have {points} points.");
             Console.WriteLine();
 
-            int x = 1;
-            foreach(string opt in menu_options)
-            {
-                Console.WriteLine($"  {x}. {opt}");
-                x += 1;
-            }
+            DisplayOptions(menu_options);
 
             Console.Write("Select a choice from the menu: ");
             choice = Console.ReadLine();
@@ -38,12 +33,7 @@ class Program
             {
                 case "1":
                     
-                    int y = 1;
-                    foreach(string opt in goal_types)
-                    {
-                        Console.WriteLine($"  {y}. {opt}");
-                        y += 1;
-                    }
+                    DisplayOptions(goal_types);
                     
                     Console.Write("Which type of goal would you like to create? ");
                     string goal_selection = Console.ReadLine();
@@ -84,12 +74,7 @@ class Program
                 case "2":
                     
                     Console.WriteLine("The goals are: ");
-                    int index = 1;
-                    foreach(Goal goal_itm in goals)
-                    {
-                        goal_itm.DisplayGoal(index);
-                        index += 1;
-                    }
+                    DisplayGoals(goals);
 
                     break;
                 case "3":
@@ -132,7 +117,7 @@ class Program
                                     int.Parse(parts[3]),
                                     parts[1],
                                     parts[2],
-                                    bool.Parse(parts[4])
+                                    (parts[4] == "1")
                                 );
                                 break;
                             case "Eternal":
@@ -158,7 +143,14 @@ class Program
 
                     break;
                 case "5":
-                    Console.WriteLine("Recording event...");
+                    
+                    DisplayGoals(goals);
+
+                    Console.Write("Select a choice from the menu: ");
+                    int goal_choice = int.Parse(Console.ReadLine());
+
+                    points += goals[goal_choice - 1].RecordEvent();
+
                     break;
                 case "6":
                     Console.WriteLine("Quitting...");
@@ -172,5 +164,25 @@ class Program
 
         Console.WriteLine("Goodbye!");
 
+    }
+
+    static void DisplayOptions(List<string> options)
+    {
+        int i = 1;
+        foreach (string opt in options)
+        {
+            Console.WriteLine($"  {i}. {opt}");
+            i++;
+        }
+    }
+
+    static void DisplayGoals(List<Goal> goals)
+    {
+        int i = 1;
+        foreach (Goal g in goals)
+        {
+            g.DisplayGoal(i);
+            i++;
+        }
     }
 }
