@@ -98,6 +98,8 @@ class Program
                     Console.Write("What is the name of your goals save file? ");
                     filename = Console.ReadLine() + ".csv";
 
+                    goals.Clear();
+
                     string[] lines = System.IO.File.ReadAllLines(filename);
 
                     foreach (string line in lines)
@@ -150,7 +152,7 @@ class Program
                     
                     DisplayGoals(goals);
 
-                    Console.Write("Select a  from the menu: ");
+                    Console.Write("Select a goal from the menu: ");
                     int goal_choice = int.Parse(Console.ReadLine());
 
                     int pointsAwarded = goals[goal_choice - 1].RecordEvent();
