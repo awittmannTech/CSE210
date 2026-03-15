@@ -11,6 +11,24 @@ public class Goal
         _description = description;
     }
 
+    public string GetDisplayName()
+    {
+        return _name;
+    }
+
+    public string GetDisplayDescription()
+    {
+        return _description;
+    }
+
+    public int GetPointValue()
+    {
+        return _points;
+    }
     
+    public virtual void DisplayGoal(int i)
+    {
+        Console.WriteLine($" {i}. [ ] {_name} ({_description})");
+    }
 
 }

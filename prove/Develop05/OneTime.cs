@@ -1,9 +1,14 @@
 public class OneTime : Goal
 {
-    private bool _complete;
+    private bool _completed;
 
-    public OneTime(int points, string name, string description, bool complete) : base (points, name, description)
+    public OneTime(int points, string name, string description, bool completed) : base (points, name, description)
     {   
-        _complete = complete;
+        _completed = completed;
+    }
+
+    public override void DisplayGoal(int i)
+    {
+        Console.WriteLine($" {i}. [{(_completed ? "X" : " ")}] {_name} ({_description})");
     }
 }
