@@ -1,4 +1,4 @@
-public class Goal
+public abstract class Goal
 {
     protected int _points;
     protected string _name;
@@ -30,5 +30,7 @@ public class Goal
     {
         Console.WriteLine($" {i}. [ ] {_name} ({_description})");
     }
+
+    public abstract string GetSerializedGoal();
 
 }

@@ -11,4 +11,9 @@ public class OneTime : Goal
     {
         Console.WriteLine($" {i}. [{(_completed ? "X" : " ")}] {_name} ({_description})");
     }
+
+    public override string GetSerializedGoal()
+    {
+        return $"OneTime:{_name},{_description},{_points},{(_completed ? 1 : 0)}";
+    }
 }

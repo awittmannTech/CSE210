@@ -6,4 +6,9 @@ public class Eternal : Goal
         _name = name;
         _description = description;
     }
+
+    public override string GetSerializedGoal()
+    {
+        return $"Eternal:{_name},{_description},{_points}";
+    }
 }

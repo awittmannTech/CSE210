@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 class Program
 {
@@ -29,6 +30,8 @@ class Program
 
             Console.Write("Select a choice from the menu: ");
             choice = Console.ReadLine();
+
+            string filename = null;
 
             switch
             (choice)
@@ -64,9 +67,15 @@ class Program
                         case "2":
                             goal = new Eternal(goal_points, goal_name, goal_description);
                             break;
-                        // case "3":
-                        //     goal = new MultiGoal(goal_points, goal_name, goal_description);
-                        //     break;
+                        case "3":
+                            Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+                            int completion_cnt_goal = int.Parse(Console.ReadLine());
+
+                            Console.Write("What is the bonus for accomplishing it that many times? ");
+                            int completion_bonus = int.Parse(Console.ReadLine());
+
+                            goal = new MultiGoal(goal_points, goal_name, goal_description, completion_bonus, completion_cnt_goal);
+                            break;
                     }
 
                     goals.Add(goal);
@@ -84,10 +93,69 @@ class Program
 
                     break;
                 case "3":
-                    Console.WriteLine("Saving goals...");
+                    
+                    Console.Write("What do you want to name your goal file? ");
+                    filename = Console.ReadLine() + ".csv";
+
+                    using (StreamWriter outputFile = new StreamWriter(filename))
+                    {
+                        outputFile.WriteLine(points);
+                        foreach(Goal g in goals)
+                        {
+                            outputFile.WriteLine(g.GetSerializedGoal()); 
+                        }
+                    }
+
                     break;
                 case "4":
-                    Console.WriteLine("Loading goals...");
+                    Console.Write("What is the name of your goals save file? ");
+                    filename = Console.ReadLine() + ".csv";
+
+                    string[] lines = System.IO.File.ReadAllLines(filename);
+
+                    foreach (string line in lines)
+                    {
+                        if (lines[0] == line)
+                        {
+                            points = int.Parse(line);
+                            continue;
+                        }
+                        string[] parts = line.Split(",");
+
+                        string goal_type = parts[0];
+                        Goal loadedGoal = null;
+
+                        switch (goal_type)
+                        {
+                            case "OneTime":
+                                loadedGoal = new OneTime(
+                                    int.Parse(parts[3]),
+                                    parts[1],
+                                    parts[2],
+                                    bool.Parse(parts[4])
+                                );
+                                break;
+                            case "Eternal":
+                                loadedGoal = new Eternal(
+                                    int.Parse(parts[3]),
+                                    parts[1],
+                                    parts[2]
+                                );
+                                break;
+                            case "MultiGoal":
+                                loadedGoal = new MultiGoal(
+                                    int.Parse(parts[3]),
+                                    parts[1],
+                                    parts[2],
+                                    int.Parse(parts[5]),
+                                    int.Parse(parts[4])
+                                );
+                                break;
+                        }
+
+                        goals.Add(loadedGoal);
+                    }
+
                     break;
                 case "5":
                     Console.WriteLine("Recording event...");
