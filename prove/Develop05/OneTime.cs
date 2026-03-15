@@ -14,6 +14,6 @@ public class OneTime : Goal
 
     public override string GetSerializedGoal()
     {
-        return $"OneTime:{_name},{_description},{_points},{(_completed ? 1 : 0)}";
+        return $"OneTime,{_name},{_description},{_points},{(_completed ? 1 : 0)}";
     }
 }

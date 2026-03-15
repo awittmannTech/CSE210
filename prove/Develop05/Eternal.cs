@@ -9,6 +9,6 @@ public class Eternal : Goal
 
     public override string GetSerializedGoal()
     {
-        return $"Eternal:{_name},{_description},{_points}";
+        return $"Eternal,{_name},{_description},{_points}";
     }
 }

@@ -18,6 +18,6 @@ public class MultiGoal : Goal
 
     public override string GetSerializedGoal()
     {
-        return $"MultiGoal:{_name},{_description},{_points},{_completionBonus},{_completionCntGoal},{_timesCompleted}";
+        return $"MultiGoal,{_name},{_description},{_points},{_completionBonus},{_completionCntGoal},{_timesCompleted}";
     }
 }
