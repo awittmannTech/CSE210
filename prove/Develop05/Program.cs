@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.IO;
 
 class Program
@@ -149,10 +150,16 @@ class Program
                     
                     DisplayGoals(goals);
 
-                    Console.Write("Select a choice from the menu: ");
+                    Console.Write("Select a  from the menu: ");
                     int goal_choice = int.Parse(Console.ReadLine());
 
-                    points += goals[goal_choice - 1].RecordEvent();
+                    int pointsAwarded = goals[goal_choice - 1].RecordEvent();
+
+                    points += pointsAwarded;
+
+                    Console.WriteLine($"Congratulations, you earned {pointsAwarded}!");
+                    Console.WriteLine($"You now have: {points}!");
+
 
                     break;
                 case "6":
