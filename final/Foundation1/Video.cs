@@ -2,14 +2,14 @@ public class Video
 {
     private string _title;
     private string _author;
-    private int _lengthInMinutes;
+    private int _lengthInSeconds;
     private List<Comment> _comments;
 
-    public Video(string title, string author, int lengthInMinutes)
+    public Video(string title, string author, int lengthInSeconds)
     {
         _title = title;
         _author = author;
-        _lengthInMinutes = lengthInMinutes;
+        _lengthInSeconds = lengthInSeconds;
         _comments = new List<Comment>();
     }
 
@@ -18,18 +18,18 @@ public class Video
         return _comments.Count;
     }
 
-    public string GetTitle()
+    public void AddComment(Comment comment)
     {
-        return _title;
+        _comments.Add(comment);
     }
 
-    public string GetAuthor()
-    {
-        return _author;
+    public void Display() {
+        Console.WriteLine($"{_title} ({_lengthInSeconds}s)");
+        Console.WriteLine($"***{_author}");
     }
 
-    public int GetLengthMinutes()
+    public List<Comment> GetComments()
     {
-        return _lengthInMinutes;
+        return _comments;
     }
 }

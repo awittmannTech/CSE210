@@ -3,13 +3,14 @@ public class Comment
     private string _author;
     private string _text;
 
-    public string GetAuthor()
+    public Comment(string author, string text)
     {
-        return _author;
+        _author = author;
+        _text = text;
     }
 
-    public string GetText()
+    public void Display()
     {
-        return _text;
+        Console.WriteLine($"    {_author} - {_text}");
     }
 }
